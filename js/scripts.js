@@ -13,11 +13,18 @@ $(document).ready(function(){
   $("#leap-year").submit(function(event){
   event.preventDefault();
   var year = parseInt($("input#year").val());
+  var result = leapYear(year);
+
+  $(".year").text(year);
 
 
-    var result = leapYear(year);
+  if (result === false){
+    $(".not").text("not");
+  } else {
+    $(".not").text("");
+  }
 
-
-    $("#result").text(result);
+  $("#result").show();
   });
 });
+// End Interface Logic
